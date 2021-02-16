@@ -6,7 +6,7 @@
 /*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/01/08 17:39:52 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/16 17:09:09 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,18 @@ int			ft_atoi(const char *str)
 	return (i * sign);
 }
 
-t_arg		parse_arg(int ac, char **av)
+t_glo		parse_arg(int ac, char **av)
 {
-	t_arg args;
+	t_glo	args;
 
 	args.nb_philo = ft_atoi(av[1]);
-	args.ttd = ft_atoi(av[2]);
-	args.tte = ft_atoi(av[3]);
-	args.tts = ft_atoi(av[4]);
+	args.ttd = ft_atoi(av[2]) * 1000;
+	args.tte = ft_atoi(av[3]) * 1000;
+	args.tts = ft_atoi(av[4]) * 1000;
 	if (ac == 6)
 		args.must_eat = ft_atoi(av[5]);
-	return(args);
+	else
+		args.must_eat = 0;
+	args.dead = 0;
+	return (args);
 }
