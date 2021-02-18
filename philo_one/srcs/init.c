@@ -6,7 +6,7 @@
 /*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/16 17:41:18 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 14:11:08 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_philo		init_philo(t_glo *args, int number)
 	gettimeofday(&philo.last_eat, NULL);
 	philo.nb_meal = 0;
 	philo.global = args;
-	//printf("philo[%d]. lfork = %d, rfork = %d\n",philo.number,philo.lfork,philo.rfork);
 	return (philo);
 }
 

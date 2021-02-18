@@ -6,7 +6,7 @@
 /*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:47:47 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/16 17:32:58 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 14:15:30 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_glo
 	int				tts;
 	int				must_eat;
 	pthread_mutex_t	*forks;
+	int				*myfork;
 	struct timeval	start;
 	pthread_mutex_t	death;
 	int				dead;
@@ -48,12 +49,12 @@ typedef struct		s_philo
 	t_glo			*global;
 }					t_philo;
 
-t_glo				parse_arg(int ac, char **av);
-pthread_t			*start_threads(t_glo args, pthread_t *threads);
+t_glo				*parse_arg(int ac, char **av);
+pthread_t			*start_threads(t_glo *args);
 t_philo				init_philo(t_glo *args, int number);
 void				*start_routine(void *pdata);
 void				init_mutexes(t_glo *args);
 void				write_status(t_philo *philo, int status);
-void				meal_time(t_philo *philo);
+void				meal_time(t_philo *phi);
 int					is_dead(t_philo *philo);
 #endif
