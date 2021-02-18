@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/18 16:25:26 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 20:17:00 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int			main(int ac, char **av)
 	if (!args)
 		return (printf("Erreur malloc myfork\n"));
 	start_threads(args);
+	exit_properly(args);
 }
 
 void		*start_routine(void *pdata)
@@ -36,7 +37,8 @@ void		*start_routine(void *pdata)
 	return (0);
 }
 
-int			start_threads(t_glo *args)
+
+void		start_threads(t_glo *args)
 {
 	t_philo		philo[args->nb_philo];
 	int			i;
@@ -53,5 +55,5 @@ int			start_threads(t_glo *args)
 	}
 	for (int j = 0; j < args->nb_philo; j++)
 		pthread_join(threads[j], NULL);
-	return (1);
 }
+

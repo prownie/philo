@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/18 15:25:26 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 17:29:41 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ t_glo		*parse_arg(int ac, char **av)
 	if (!(args->myfork = malloc(sizeof(args->myfork) * args->nb_philo)))
 		return (NULL);
 	return (args);
+}
+
+void	exit_properly(t_glo *args)
+{
+	if (args)
+	{
+		if (args->forks)
+			free(args->forks);
+		if (args->myfork)
+			free(args->myfork);
+		free(args);
+	}
+
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   status.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/18 16:41:08 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 17:35:24 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int		is_dead(t_philo *philo, struct timeval curtime)
 	timestamp = (curtime.tv_sec * 1000 + curtime.tv_usec / 1000) -
 		(philo->last_eat.tv_sec * 1000 + philo->last_eat.tv_usec / 1000);
 	if (timestamp > 400)
-		printf("timestamp dans is dead = %d\n",timestamp);
-	if (timestamp > philo->global->ttd)
+		printf("timestamp dans is dead = %d\n", timestamp);
+	if (timestamp > philo->global->ttd && philo->global->dead == 0)
 	{
 		printf("JE SUIS RENTRE LA DEDANS\n");
 		pthread_mutex_lock(&philo->global->death);
@@ -42,19 +42,20 @@ void	write_status(t_philo *philo, int status)
 
 	gettimeofday(&curtime, NULL);
 	timestamp = (curtime.tv_sec * 1000 + curtime.tv_usec / 1000) -
-		(philo->global->start.tv_sec * 1000 + philo->global->start.tv_usec / 1000);
+		(philo->global->start.tv_sec * 1000 + philo->global->start.tv_usec
+			/ 1000);
 	if (status == FORK && philo->global->dead == 0)
-		printf("%d %d has taken a fork\n", timestamp, philo->number );
+		printf("%d %d has taken a fork\n", timestamp, philo->number);
 	if (status == 5 && philo->global->dead == 0)
-		printf("%d %d has taken his fork\n", timestamp, philo->number );
+		printf("%d %d has taken his fork\n", timestamp, philo->number);
 	if (status == EAT && philo->global->dead == 0)
-		printf("%d %d is eating\n", timestamp, philo->number );
+		printf("%d %d is eating\n", timestamp, philo->number);
 	if (status == SLEEP && philo->global->dead == 0)
-		printf("%d %d is sleeping\n", timestamp, philo->number );
+		printf("%d %d is sleeping\n", timestamp, philo->number);
 	if (status == THINK && philo->global->dead == 0)
-		printf("%d %d is thinking\n", timestamp, philo->number );
+		printf("%d %d is thinking\n", timestamp, philo->number);
 	if (status == RIP)
-		printf("%d %d died\n", timestamp, philo->number );
+		printf("%d %d died\n", timestamp, philo->number);
 }
 
 void	meal_time(t_philo *phi)
@@ -79,4 +80,3 @@ void	meal_time(t_philo *phi)
 		usleep(200000);
 	}
 }
-
