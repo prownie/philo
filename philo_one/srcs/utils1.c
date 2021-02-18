@@ -6,7 +6,7 @@
 /*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/17 13:09:02 by rpichon          ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 15:25:26 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ t_glo		*parse_arg(int ac, char **av)
 	if (!(args = malloc(sizeof(t_glo))))
 		return (NULL);
 	args->nb_philo = ft_atoi(av[1]);
-	args->ttd = ft_atoi(av[2]) * 1000;
-	args->tte = ft_atoi(av[3]) * 1000;
-	args->tts = ft_atoi(av[4]) * 1000;
+	args->ttd = ft_atoi(av[2]);
+	args->tte = ft_atoi(av[3]);
+	args->tts = ft_atoi(av[4]);
 	if (ac == 6)
 		args->must_eat = ft_atoi(av[5]);
 	else
