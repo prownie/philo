@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 15:42:14 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:15:29 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			start_threads(t_glo *args)
 	pthread_t	threads[args->nb_philo + 1];
 
 	i = -1;
-	if (init_mutexes(args))
+	if (init_semaphore(args))
 		return (1);
 	gettimeofday(&args->start, NULL);
 	while (++i < args->nb_philo)

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 15:44:03 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:10:50 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void	meal_time(t_philo *phi)
 {
 	if (phi->global->myfork[(phi->number + 1) % phi->global->nb_philo])
 	{
-		pthread_mutex_lock(&phi->global->forks[phi->lfork]);
+		sem_wait(&phi->global->semaphore);
 		phi->global->myfork[phi->number] = 0;
 		write_status(phi, FORK);
-		pthread_mutex_lock(&phi->global->forks[phi->rfork]);
+		sem_wait(&phi->global->semaphore);
 		phi->global->myfork[(phi->number + 1) % phi->global->nb_philo] = 0;
 		write_status(phi, FORK);
 		write_status(phi, EAT);
@@ -90,9 +90,9 @@ void	meal_time(t_philo *phi)
 		phi->nb_meal++;
 		nap_time(phi, EAT);
 		write_status(phi, SLEEP);
-		pthread_mutex_unlock(&phi->global->forks[phi->lfork]);
+		sem_post(&phi->global->semaphore);
 		phi->global->myfork[phi->number] = 1;
-		pthread_mutex_unlock(&phi->global->forks[phi->rfork]);
+		sem_post(&phi->global->semaphore);
 		phi->global->myfork[(phi->number + 1) % phi->global->nb_philo] = 1;
 		nap_time(phi, SLEEP);
 	}

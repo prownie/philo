@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 15:40:36 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:07:41 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,9 @@ int		exit_properly(t_glo *args)
 {
 	if (args)
 	{
-		if (args->forks)
-			free(args->forks);
 		if (args->myfork)
 			free(args->myfork);
+		sem_destroy(&args->semaphore);
 		free(args);
 	}
 	return (1);

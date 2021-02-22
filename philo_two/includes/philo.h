@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:47:47 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 16:04:31 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:12:07 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <stdio.h>
+#include <semaphore.h>
+
 # define FORK 0
 # define EAT 1
 # define SLEEP 2
@@ -32,7 +34,7 @@ typedef struct		s_glo
 	int				tte;
 	int				tts;
 	int				must_eat;
-	pthread_mutex_t	*forks;
+	sem_t			semaphore;
 	int				*myfork;
 	struct timeval	start;
 	int				dead;
@@ -52,7 +54,7 @@ t_glo				*parse_arg(int ac, char **av);
 int					start_threads(t_glo *args);
 t_philo				init_philo(t_glo *args, int number);
 void				*start_routine(void *pdata);
-int					init_mutexes(t_glo *args);
+int					init_semaphore(t_glo *args);
 void				write_status(t_philo *philo, int status);
 void				meal_time(t_philo *phi);
 void				nap_time(t_philo *philo, int status);
