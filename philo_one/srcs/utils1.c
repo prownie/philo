@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 15:40:36 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:42:36 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_glo		*parse_arg(int ac, char **av)
 	return (args);
 }
 
-int		exit_properly(t_glo *args)
+int			exit_properly(t_glo *args)
 {
 	if (args)
 	{

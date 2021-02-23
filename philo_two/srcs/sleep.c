@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 16:31:38 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 11:29:01 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void		nap_time(t_philo *philo, int status)
 		sleep = philo->global->tte;
 	else if (status == SLEEP)
 		sleep = philo->global->tts;
-	printf("sleep = %d\n", sleep);
 	while (i < sleep)
 	{
 		gettimeofday(&curtime, NULL);

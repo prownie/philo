@@ -6,7 +6,7 @@
 /*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 16:14:28 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/22 16:42:22 by root             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			init_mutexes(t_glo *args)
 
 	i = -1;
 	if (!(args->forks = malloc(sizeof(args->forks) * args->nb_philo)))
-		return(1);
+		return (1);
 	while (++i < args->nb_philo)
 		pthread_mutex_init(&args->forks[i], NULL);
 	return (0);
