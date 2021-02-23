@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sleep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 16:42:27 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 14:04:06 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void		nap_time(t_philo *philo, int status)
 	gettimeofday(&start, NULL);
 	if (status == EAT)
 		sleep = philo->global->tte;
-	else if (status == SLEEP)
+	else
 		sleep = philo->global->tts;
+
 	while (i < sleep)
 	{
 		gettimeofday(&curtime, NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:58:25 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 16:42:36 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 13:55:34 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,10 @@ int			exit_properly(t_glo *args)
 	{
 		if (args->forks)
 			free(args->forks);
-		if (args->myfork)
-			free(args->myfork);
-		free(args);
+		//if (args->myfork)
+		//free(args->myfork);
+		//free(args);
+
 	}
 	return (1);
 }

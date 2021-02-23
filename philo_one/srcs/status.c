@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   status.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: rpichon <rpichon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:34:00 by rpichon           #+#    #+#             */
-/*   Updated: 2021/02/22 15:44:03 by root             ###   ########lyon.fr   */
+/*   Updated: 2021/02/23 13:56:33 by rpichon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*is_anyone_dead_or_fed(void *pdata)
 			if (timestamp > philo[0].global->ttd)
 			{
 				philo[0].global->dead = 1;
-				write_status(philo, RIP);
+				write_status(&philo[i], RIP);
 			}
 		}
 		i = -1;

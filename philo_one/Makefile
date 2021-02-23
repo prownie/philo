@@ -17,8 +17,8 @@ SRCS_NAME	= 		error.c philosophers.c utils1.c init.c sleep.c status.c
 OBJS		= 		${SRCS:.c=.o}
 NAME		= 		philo_one
 RM			= 		rm -f
-#FLAGS 		= 		-g -Wall -Wextra -Werror -pthread
-FLAGS		=		-g3 -fsanitize=address -Wall -Wextra -Werror -pthread
+FLAGS 		= 		-Wall -Wextra -Werror
+#FLAGS		=		-g3 -fsanitize=address -Wall -Wextra -Werror -pthread
 SRCS 		= 		$(addprefix $(SRC_PATH)/,$(SRCS_NAME))
 
 # **************************************************************************** #
